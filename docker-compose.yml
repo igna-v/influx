@@ -21,6 +21,8 @@ services:
     hostname: "kapacitor"
     networks:
       tik_net:
+    ports:
+      - "9092:9092"
     volumes:
       - ./etc/kapacitor:/etc/kapacitor
       - ./var/log/kapacitor:/var/log/kapacitor
@@ -40,7 +42,7 @@ services:
     ports: 
       - "3000:3000"
     volumes:
-      - ./var/lib/grafana/plugins:/var/lib/grafana/plugins
+      - ./var/lib/grafana:/var/lib/grafana
       - ./var/lib/grafana/plugins/briangann-gauge-panel:/var/lib/grafana/plugins/briangann-gauge-panel
       - ./var/lib/grafana/plugins/yesoreyeram-boomtable-panel:/var/lib/grafana/plugins/yesoreyeram-boomtable-panel
 
